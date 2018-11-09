@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
     root: {
@@ -10,19 +11,21 @@ const styles = {
         width: 32,
         minHeight: 32,
         boxShadow: 'none',
-        marginRight: 10
+        marginRight: 10,
+        paddingLeft: 4
     },
 };
 
-const AddButton = () => {
+const AddButton = ({...props}) => {
     return (
         <Button
             variant="fab"
             mini aria-label="Add"
-            style={styles.root}>
+            style={styles.root}
+            {...props}>
                 <AddIcon />
         </Button>
     );
 }
 
-export default AddButton;
+export default withStyles(styles)(AddButton);
