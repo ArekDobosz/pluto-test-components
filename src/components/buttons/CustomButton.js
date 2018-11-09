@@ -4,12 +4,12 @@ import { Button } from '@material-ui/core';
 import { ArrowRightIcon } from '../../img';
 import Loader from '../loaders/Loader';
 
-const CustomButton = ({text, disabled, loading, onClick, ...props}) => {
+const CustomButton = ({text, disabled, loading, ...props}) => {
   return (
     <Button
       disabled={disabled}
-      color="primary"
-      onClick={(e) => onClick(e)}
+      color="secondary"
+      variant="contained"
       {...props}>
         {text}
         {!loading && <ArrowRightIcon/>}

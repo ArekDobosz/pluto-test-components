@@ -4,17 +4,18 @@ export const defaultFontColor = '#054344';
 
 
 export const theme = {
-    pallette: {
-        primary: primary
+    palette: {
+        secondary: {
+          main: primary,
+          contrastText: defaultFontColor
+        }
     },
     overrides: {
         MuiButton: {
             root: {
-                fonFamily: 'Montserrat',
+                fontFamily: 'Montserrat',
                 fontSize: 16,
-                backgroundColor: primary,
                 borderRadius: 0,
-                color: defaultFontColor,
                 height: 56,
                 width: 260,
                 padding: '0 30px',
