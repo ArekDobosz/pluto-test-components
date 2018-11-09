@@ -1,0 +1,17 @@
+.Arrow-Right {
+    background-image: url('../../img/arrow-right.svg');
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.Loading {
+    background-color: yellowgreen;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
