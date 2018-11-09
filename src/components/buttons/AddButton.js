@@ -1,7 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { Button, withStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
     root: {
