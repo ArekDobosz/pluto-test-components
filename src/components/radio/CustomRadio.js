@@ -1,37 +1,29 @@
-import React, { Component } from 'react';
-import { RadioGroup } from '@material-ui/core';
-import { FormControlLabel, Radio } from '@material-ui/core';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Radio from '@material-ui/core/Radio';
+import { withStyles } from '@material-ui/core/styles';
 
-class CustomRadio extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            value: null
+const styles = {
+    root: {
+        height: 32,
+        width: 32,
+        marginRight: 10,
+        marginLeft: 10,
+        padding: 0,
+        '& svg': {
+            fontSize: 32
         }
     }
+};
 
-    handleChange = (event) => {
-        console.log(event.target.value);
-        this.setState({
-            value: event.target.value
-        });
-    }
-
-    render() {
-        return (
-            <RadioGroup
-                aria-label="Gender"
-                name="gender1"
-                value={this.state.value}
-                onChange={this.handleChange}>
-                    <FormControlLabel value={'female'} control={<Radio color="primary" onChange={this.props.onChange} />} label={'Female'} />
-                    <FormControlLabel value={'male'} control={<Radio color="primary" onChange={this.props.onChange} />} label={'Male'} />
-                    {/* <SingleRadio value={'female'} label={'Female'} onChange={this.handleChange} checked={true} />
-                    <SingleRadio value={'male'} label={'Male'} onChange={this.handleChange} /> */}
-            </RadioGroup>
-        );
-    }
+const CustomRadio = ({...props}) => {
+    return (
+        <Radio color="primary" {...props} />
+    );
 }
 
-export default CustomRadio;
+CustomRadio.propTypes = {
+    props: PropTypes.object
+}
+
+export default withStyles(styles)(CustomRadio);

@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, withStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 const styles = {
     root: {
-        backgroundColor: '#F4F4B8',
         color: '#000',
         height: 32,
         width: 32,
@@ -18,6 +18,7 @@ const styles = {
 const AddButton = ({...props}) => {
     return (
         <Button
+            color="secondary"
             variant="fab"
             mini aria-label="Add"
             style={styles.root}
@@ -25,6 +26,10 @@ const AddButton = ({...props}) => {
                 <AddIcon />
         </Button>
     );
+}
+
+AddButton.propTypes = {
+    props: PropTypes.object
 }
 
 export default withStyles(styles)(AddButton);

@@ -1,15 +1,30 @@
 import React, { Component, Fragment } from 'react';
-import { Grid, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { Grid,
+  MuiThemeProvider,
+  createMuiTheme,
+  CssBaseline,
+  FormControlLabel,
+  FormLabel,
+  RadioGroup,
+  FormControl,
+  IconButton,
+  Tooltip
+} 
+from '@material-ui/core';
+
 import CustomButton from './components/buttons/CustomButton';
 import AddButton from './components/buttons/AddButton';
 import CustomRadio from './components/radio/CustomRadio';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CustomCheckbox from './components/checkbox/CustomCheckbox';
+import CustomTextField from './components/textinputs/CustomTextField';
+import { Hint, Search } from './img';
+
 import * as theme from './theme';
 import './App.css';
 
 const styles = {
   grid: {
-    margin: '10px 0'
+    margin: '20px 0'
   }
 };
 
@@ -21,10 +36,14 @@ class App extends Component {
 
     this.state = {
       loading: false,
-      disabled: false
+      disabled: false,
+      gender: null,
+      hobby: []
     };
 
     this.onClickHandle = this.onClickHandle.bind(this);
+    this.genderOnChange = this.genderOnChange.bind(this);
+    this.hobbyOnChange = this.hobbyOnChange.bind(this);
   }
 
   onClickHandle = (event, props) => {
@@ -45,28 +64,123 @@ class App extends Component {
     });
   }
 
+  genderOnChange = (event) => {
+    this.setState({
+      gender: event.target.value
+    });
+  }
+
+  hobbyOnChange = (event) => {
+    let newHobby = this.state.hobby.slice(0);
+    let index = newHobby.indexOf(event.target.value);
+
+    if (index > -1) {
+      newHobby.splice(index, 1);
+    } else {
+      newHobby = newHobby.concat([event.target.value]);
+    }
+
+    this.setState((prevState) => ({
+      hobby: newHobby,
+    }));
+  }
+
   render() {
-    const {loading, disabled} = this.state;
+    const {loading, disabled, gender} = this.state;
 
     return (
       <Fragment> 
         <CssBaseline /> 
         <MuiThemeProvider theme={customTheme}>
           <div className="Container">
+
             <Grid style={styles.grid}>
-              <CustomButton 
-                text={'Next'} 
+              <CustomButton
                 onClick={this.onClickHandle} 
                 disabled={disabled}
-                loading={loading}/>
+                loading={loading}>
+                Next 
+                </CustomButton>
             </Grid>
+
             <Grid style={styles.grid}>
               <AddButton />
               Add button
             </Grid>
+            
             <Grid style={styles.grid}>
-              <CustomRadio />
+              <FormControl>
+              <FormLabel component="legend">Gender</FormLabel>
+              <RadioGroup
+                aria-label="Gender"
+                name="gender"
+                value={this.state.gender}
+                onChange={this.genderOnChange}>
+
+                <FormControlLabel
+                  value="female"
+                  label="Female"
+                  control={<CustomRadio />}
+                  checked={gender === 'female'} />
+
+                <FormControlLabel
+                  value="male"
+                  label="Male"
+                  control={<CustomRadio />} 
+                  checked={gender === 'male'}/>
+
+              </RadioGroup>
+              </FormControl>
             </Grid>
+            
+            <Grid style={styles.grid}>
+              <div>Hobby: </div>
+              <FormControlLabel
+                control={
+                <CustomCheckbox
+                  value={'opt1'}
+                  onChange={this.hobbyOnChange}
+                />}
+                label="Hobby1"
+              />
+              <FormControlLabel
+                control={
+                <CustomCheckbox
+                  value={'opt2'}
+                  onChange={this.hobbyOnChange}
+                />}
+                label="Hobby2"
+              />
+              <FormControlLabel
+                control={
+                <CustomCheckbox
+                  value={'opt3'}
+                  onChange={this.hobbyOnChange}
+                />}
+                label="Hobby3"
+              />
+            </Grid>
+
+            <Grid tyle={styles.grid}>
+              <CustomTextField
+                    placeholder='Display Text'
+                  />
+              </Grid>
+
+              <Grid style={styles.grid}>
+                <CustomTextField
+                  placeholder='Search'
+                  icon={<Tooltip title="Hint" placement="top"><Hint/></Tooltip>}
+                />
+              </Grid>
+              
+              <Grid style={styles.grid}>
+                <CustomTextField
+                  placeholder='Enter destination'
+                  icon={<IconButton><Search/></IconButton>}
+                />
+              </Grid>
+          
           </div>
         </MuiThemeProvider>
       </Fragment>

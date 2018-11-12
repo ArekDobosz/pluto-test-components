@@ -1,102 +1,33 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { FormControlLabel, Checkbox } from '@material-ui/core/FormControlLabel';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Checkbox from '@material-ui/core/Checkbox';
+import {CheckboxChecked, CheckboxBlank} from '../../img';
+import { withStyles } from '@material-ui/core/styles';
 
-class CustomCheckbox extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            checked: this.props.checked,
-            checkedB: true
-        };
-
-        this.handleChange = this.handleChange.bind(this);
+const styles = {
+    root: {
+        height: 32,
+        width: 32,
+        marginLeft: 10,
+        marginRight: 10,
+        '& svg': {
+            fontSize: 32
+        }
     }
+};
 
-    handleChange = () => {
-        this.setState(prevState => ({
-            checked: !prevState.checked
-        }));
-    }
-
-    render() {
-        const {checked} = this.state;
-        return (
-            <FormControlLabel
-                control={
-                    <Checkbox
-                    checked={true}
-                    onChange={this.handleChange('checkedA')}
-                    value="checkedA"
-                    />
-                }
-                label="Secondary"
-            />
-            // <FormControlLabel
-            //   control={
-            //     <Checkbox
-            //       checked={checked}
-            //       onChange={this.handleChange}
-            //       value="checked"
-            //       color="primary"
-            //     />
-            //   }
-            //   label="Primary"
-            // />
-        );
-    };
+const CustomCheckbox = ({...props}) => {
+    return (
+        <Checkbox {...props}
+            color="primary"
+            checkedIcon={<CheckboxChecked/>}
+            icon={<CheckboxBlank/>}
+        />
+    );
 }
 
-=======
-import React, { Component } from 'react';
-import { FormControlLabel, Checkbox } from '@material-ui/core/FormControlLabel';
-
-class CustomCheckbox extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            checked: this.props.checked,
-            checkedB: true
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange = () => {
-        this.setState(prevState => ({
-            checked: !prevState.checked
-        }));
-    }
-
-    render() {
-        const {checked} = this.state;
-        return (
-            <FormControlLabel
-                control={
-                    <Checkbox
-                    checked={true}
-                    onChange={this.handleChange('checkedA')}
-                    value="checkedA"
-                    />
-                }
-                label="Secondary"
-            />
-            // <FormControlLabel
-            //   control={
-            //     <Checkbox
-            //       checked={checked}
-            //       onChange={this.handleChange}
-            //       value="checked"
-            //       color="primary"
-            //     />
-            //   }
-            //   label="Primary"
-            // />
-        );
-    };
+CustomCheckbox.propTypes = {
+    props: PropTypes.object
 }
 
->>>>>>> e1b53ca73630c02abe2b5860ea4ccd59757404aa
-export default CustomCheckbox;
+export default withStyles(styles)(CustomCheckbox);

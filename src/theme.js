@@ -1,12 +1,17 @@
-export const primary = '#F4F4B8';
-export const secondary = '#CDDADA';
+export const electric = '#7382ff';
+export const lemon = '#F4F4B8';
+export const night20 = '#CDDADA';
 export const defaultFontColor = '#054344';
 
 
 export const theme = {
     palette: {
+        primary: {
+            main: electric,
+            contrastText: defaultFontColor
+        },
         secondary: {
-          main: primary,
+          main: lemon,
           contrastText: defaultFontColor
         }
     },
@@ -22,8 +27,47 @@ export const theme = {
                 justifyContent: 'space-between',
             },
             disabled: {
-                backgroundColor: secondary,
+                backgroundColor: night20,
                 color: defaultFontColor,
+            }
+        },
+        MuiIconButton: {
+          root: {
+              padding: 0,
+              height: 24,
+              width: 24,
+              '&:hover': {
+                backgroundColor: '#fff'
+              }
+          },
+        },
+        MuiInput: {
+            root: {
+              background: '#fff',
+              fontSize: 16,
+              fontWeight: 500,
+              lineHeight: 1.5,
+              padding: '1em 1.5em',
+              width: 284,
+              height: 56,
+              '& input' : {
+                padding: 0
+              },
+              'label + & ::placeholder': {
+                opacity: '0.5 !important',
+              }
+            },
+            underline: {
+              '&:after': {
+                borderBottomColor: '#cddada',
+                transform: 'none',
+              }
+            },
+            error: {
+              color: electric
+            },
+            inputType: {
+              height: 'auto'
             }
         },
     },
