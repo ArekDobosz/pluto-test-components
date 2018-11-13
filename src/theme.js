@@ -97,7 +97,7 @@ export const theme = {
             background: cornflower,
             paddingLeft: 19,
             paddingBottom: 18,
-            marginBottom: 20
+            marginBottom: 50
           },
           dot: {
             backgroundColor: '#fff',

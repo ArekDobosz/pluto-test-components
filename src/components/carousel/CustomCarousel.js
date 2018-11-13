@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
@@ -7,14 +7,14 @@ import SwipeableViews from 'react-swipeable-views';
 const styles = theme => ({
     root: {
         maxWidth: 320,
-        height: 290,
+        height: 270,
         flexGrow: 1,
     },
     carousel: {
         backgroundColor: '#7382ff',
         color: '#fff',
         width: '100%',
-        height: 290,
+        height: 270,
         padding: '24px 16px 19px 18px',
         
     },
@@ -41,7 +41,7 @@ const styles = theme => ({
     }
 });
 
-class CustomCarousel extends React.Component {
+class CustomCarousel extends Component {
     state = {
         activeStep: 0,
     };

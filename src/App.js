@@ -18,6 +18,7 @@ import CustomRadio from './components/radio/CustomRadio';
 import CustomCheckbox from './components/checkbox/CustomCheckbox';
 import CustomTextField from './components/textinputs/CustomTextField';
 import CustomCarousel from './components/carousel/CustomCarousel';
+
 import { Hint, Search } from './img';
 
 import * as theme from './theme';
@@ -188,28 +189,33 @@ class App extends Component {
             </Grid>
 
             <Grid tyle={styles.grid}>
+              <CustomTextField placeholder='Display Text'/>
+            </Grid>
+
+            <Grid style={styles.grid}>
               <CustomTextField
-                    placeholder='Display Text'
-                  />
-              </Grid>
-
-              <Grid style={styles.grid}>
-                <CustomTextField
-                  placeholder='Search'
-                  icon={<Tooltip title="Hint" placement="top"><Hint/></Tooltip>}
-                />
-              </Grid>
+                placeholder='Search'
+                icon={<Tooltip title="Hint" placement="top"><Hint/></Tooltip>}
+              />
+            </Grid>
               
-              <Grid style={styles.grid}>
-                <CustomTextField
-                  placeholder='Enter destination'
-                  icon={<IconButton><Search/></IconButton>}
-                />
-              </Grid>
+            <Grid style={styles.grid}>
+              <CustomTextField
+                placeholder='Enter destination'
+                icon={<IconButton><Search/></IconButton>}
+              />
+            </Grid>
 
-              <Grid style={styles.grid}>
-                <CustomCarousel steps={carouselSteps}/>
-              </Grid>
+            <Grid tyle={styles.grid}>
+              <CustomTextField
+                placeholder='Input with error'
+                error={true}
+              />
+            </Grid>
+
+            <Grid style={styles.grid}>
+              <CustomCarousel steps={carouselSteps}/>
+            </Grid>
           
           </div>
         </MuiThemeProvider>
