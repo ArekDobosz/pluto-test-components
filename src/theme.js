@@ -2,6 +2,7 @@ export const electric = '#7382ff';
 export const lemon = '#F4F4B8';
 export const night20 = '#CDDADA';
 export const defaultFontColor = '#054344';
+export const cornflower = '#7382ff';
 
 
 export const theme = {
@@ -34,6 +35,7 @@ export const theme = {
         MuiIconButton: {
           root: {
               padding: 0,
+              marginBottom: 0,
               height: 24,
               width: 24,
               '&:hover': {
@@ -70,5 +72,44 @@ export const theme = {
               height: 'auto'
             }
         },
+        MuiTypography: {
+          root: {
+            marginLeft: 43
+          }
+        },
+        MuiButtonBase: {
+          root: {
+          }
+        },
+        MuiFormControlLabel: {
+          root: {
+            width: '100%',
+            marginBottom: 16
+          }
+        },
+        MuiTouchRipple: {
+          root: {
+            marginLeft: 43
+          }
+        },
+        MuiMobileStepper: {
+          root: {
+            background: cornflower,
+            paddingLeft: 19,
+            paddingBottom: 18,
+            marginBottom: 20
+          },
+          dot: {
+            backgroundColor: '#fff',
+            opacity: 0.3,
+            width: 12,
+            height: 12,
+            transition: 'opacity 0.5s'
+          },
+          dotActive: {
+            backgroundColor: '#fff',
+            opacity: 1
+          },
+        }
     },
 };

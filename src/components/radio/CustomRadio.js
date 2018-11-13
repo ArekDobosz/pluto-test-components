@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Radio from '@material-ui/core/Radio';
 import { withStyles } from '@material-ui/core/styles';
+import {RadioBlank, RadioChecked} from '../../img';
 
 const styles = {
     root: {
@@ -18,7 +19,11 @@ const styles = {
 
 const CustomRadio = ({...props}) => {
     return (
-        <Radio color="primary" {...props} />
+        <Radio
+            color="primary"
+            {...props} 
+            icon={<RadioBlank/>}
+            checkedIcon={<RadioChecked/>} />
     );
 }
 

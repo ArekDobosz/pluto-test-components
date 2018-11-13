@@ -30,3 +30,17 @@ export const Hint = wrapSvgPath(
 );
 
 export const Search = wrapSvgPath(<path d="M16.872 15.36l3.702 3.8-1.415 1.414-3.689-3.786a7.5 7.5 0 1 1 1.401-1.427zm-6.006 1.006a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z"/>);
+
+export const RadioBlank = wrapSvgPath(
+  <circle cx="16" cy="16" r="15" fill="#FFF" fillRule="nonzero" stroke="#074445" strokeOpacity=".5" strokeWidth="2"/>,
+  '0 0 32 32'
+);
+
+export const RadioChecked = wrapSvgPath(
+  <g fill="none" fillRule="nonzero">
+    <circle cx="16" cy="16" r="16" fill="currentColor"/>
+    <circle cx="16" cy="16" r="14" fill="#FFF"/>
+    <circle cx="16" cy="16" r="9" fill="currentColor"/>
+  </g>,
+  '0 0 32 32'
+);

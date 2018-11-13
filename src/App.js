@@ -17,6 +17,7 @@ import AddButton from './components/buttons/AddButton';
 import CustomRadio from './components/radio/CustomRadio';
 import CustomCheckbox from './components/checkbox/CustomCheckbox';
 import CustomTextField from './components/textinputs/CustomTextField';
+import CustomCarousel from './components/carousel/CustomCarousel';
 import { Hint, Search } from './img';
 
 import * as theme from './theme';
@@ -25,8 +26,33 @@ import './App.css';
 const styles = {
   grid: {
     margin: '20px 0'
+  },
+  header: {
+    marginBottom: 15
   }
+
 };
+
+const carouselSteps = [
+  {
+    id: 1,
+    title: 'Carousel',
+    text: 'Swipe left or right anywhere within the component to move between screens.',
+    box: 'Screen 1',
+  },
+  {
+    id: 2,
+    title: 'Carousel',
+    text: 'Swipe left or right anywhere within the component to move between screens.',
+    box: 'Screen 2',
+  },
+  {
+    id: 3,
+    title: 'Carousel',
+    text: 'Swipe left or right anywhere within the component to move between screens.',
+    box: 'Screen 3',
+  },
+];
 
 const customTheme = createMuiTheme(theme.theme);
 
@@ -110,7 +136,7 @@ class App extends Component {
             
             <Grid style={styles.grid}>
               <FormControl>
-              <FormLabel component="legend">Gender</FormLabel>
+              <FormLabel component="legend" style={styles.header}>Gender</FormLabel>
               <RadioGroup
                 aria-label="Gender"
                 name="gender"
@@ -134,7 +160,7 @@ class App extends Component {
             </Grid>
             
             <Grid style={styles.grid}>
-              <div>Hobby: </div>
+              <div style={styles.header}>Hobby: </div>
               <FormControlLabel
                 control={
                 <CustomCheckbox
@@ -179,6 +205,10 @@ class App extends Component {
                   placeholder='Enter destination'
                   icon={<IconButton><Search/></IconButton>}
                 />
+              </Grid>
+
+              <Grid style={styles.grid}>
+                <CustomCarousel steps={carouselSteps}/>
               </Grid>
           
           </div>
